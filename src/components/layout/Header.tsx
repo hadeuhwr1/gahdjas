@@ -120,7 +120,7 @@ const Header: React.FC = () => {
 
                   {/* Custom Profile Menu */}
                   {showProfileMenu && (
-                    <div className="fixed md:absolute z-50 md:w-72 w-full bg-gray-900/95 backdrop-blur-md border border-cyan-glow/30 md:rounded-lg shadow-xl md:right-0 md:top-full md:mt-2 bottom-0 md:bottom-auto">
+                    <div className="fixed md:absolute z-50 md:w-72 w-[calc(100vw-2rem)] left-4 right-4 md:left-auto md:right-0 bg-gray-900/95 backdrop-blur-md border border-cyan-glow/30 md:rounded-lg shadow-xl md:top-full md:mt-2 bottom-4 md:bottom-auto">
                       <div className="p-4" style={{ maxHeight: '80vh', overflowY: 'auto' }}>
                         <div className="flex items-center justify-between mb-4">
                           <h3 className="text-cyan-glow font-orbitron">Wallet Profile</h3>
