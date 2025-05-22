@@ -95,7 +95,7 @@ const Header: React.FC = () => {
             {(() => {
               if (!connected) {
                 return (
-                  <button onClick={openConnectModal} className="button-primary">
+                  <button onClick={openConnectModal} className="button-primary w-full md:w-auto">
                     Connect Wallet
                   </button>
                 );
