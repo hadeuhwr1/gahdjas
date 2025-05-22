@@ -95,7 +95,7 @@ const Header: React.FC = () => {
             {(() => {
               if (!connected) {
                 return (
-                  <button onClick={openConnectModal} className="button-primary w-full md:w-auto">
+                  <button onClick={openConnectModal} className="button-primary">
                     Connect Wallet
                   </button>
                 );
@@ -224,7 +224,7 @@ const Header: React.FC = () => {
           </nav>
 
           {/* Connect Wallet Button */}
-          <div className="hidden md:block">
+          <div className="hidden md:block ">
             <CustomConnectButton />
           </div>
 
@@ -275,7 +275,7 @@ const Header: React.FC = () => {
                 {item}
               </a>
             ))}
-            <div className="mt-6 w-full px-4">
+            <div className="mt-6 w-full px-4 flex justify-center">
               <CustomConnectButton />
             </div>
           </nav>
