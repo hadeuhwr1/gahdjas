@@ -48,6 +48,7 @@ const Header: React.FC = () => {
       }
       disconnect();
       setShowProfileMenu(false);
+      setMobileMenuOpen(false);
     } catch (error) {
       console.error('Error during disconnect:', error);
     }
@@ -119,12 +120,15 @@ const Header: React.FC = () => {
 
                   {/* Custom Profile Menu */}
                   {showProfileMenu && (
-                    <div className="fixed inset-x-0 bottom-0 md:absolute md:inset-auto md:right-0 md:top-full mt-2 md:w-72 w-full bg-gray-900/95 backdrop-blur-md border border-cyan-glow/30 rounded-t-lg md:rounded-lg shadow-xl z-50">
-                      <div className="p-4">
+                    <div className="fixed inset-0 md:inset-auto md:absolute z-50 md:w-72 w-full bg-gray-900/95 backdrop-blur-md border border-cyan-glow/30 md:rounded-lg shadow-xl md:right-0 md:top-full md:mt-2">
+                      <div className="p-4 overflow-y-auto" style={{ maxHeight: 'calc(100vh - 80px)' }}>
                         <div className="flex items-center justify-between mb-4">
                           <h3 className="text-cyan-glow font-orbitron">Wallet Profile</h3>
                           <button
-                            onClick={() => setShowProfileMenu(false)}
+                            onClick={() => {
+                              setShowProfileMenu(false);
+                              setMobileMenuOpen(false);
+                            }}
                             className="text-gray-400 hover:text-cyan-glow"
                           >
                             <X className="h-4 w-4" />
@@ -161,6 +165,8 @@ const Header: React.FC = () => {
                           <button
                             onClick={() => {
                               window.open(`https://etherscan.io/address/${account.address}`, '_blank');
+                              setShowProfileMenu(false);
+                              setMobileMenuOpen(false);
                             }}
                             className="w-full flex items-center justify-between px-3 py-2 text-sm text-gray-300 hover:text-cyan-glow transition-colors"
                           >
@@ -239,10 +245,10 @@ const Header: React.FC = () => {
 
       {/* Mobile Menu */}
       <div 
-        className={`fixed inset-0 bg-black/95 backdrop-blur-md z-40 transition-transform duration-300 ease-in-out overflow-hidden ${
+        className={`fixed inset-0 bg-black/95 backdrop-blur-md z-40 transition-transform duration-300 ease-in-out ${
           mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         } md:hidden`}
-        style={{ height: '100vh' }}
+        style={{ height: '100dvh' }}
       >
         <div className="flex flex-col h-full">
           {/* Close button */}
@@ -270,7 +276,7 @@ const Header: React.FC = () => {
                 {item}
               </a>
             ))}
-            <div className="mt-6">
+            <div className="mt-6 w-full px-4">
               <CustomConnectButton />
             </div>
           </nav>
