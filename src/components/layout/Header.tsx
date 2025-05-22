@@ -248,9 +248,8 @@ const Header: React.FC = () => {
         className={`fixed inset-0 bg-black/95 backdrop-blur-md z-40 transition-transform duration-300 ease-in-out ${
           mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         } md:hidden`}
-        style={{ height: '100dvh' }}
       >
-        <div className="flex flex-col h-full">
+        <div className="flex flex-col h-screen">
           {/* Close button */}
           <div className="flex justify-end p-4">
             <button 
@@ -262,7 +261,7 @@ const Header: React.FC = () => {
           </div>
 
           {/* Navigation items */}
-          <nav className="flex flex-col items-center flex-grow overflow-y-auto">
+          <nav className="flex flex-col items-center flex-grow overflow-hidden">
             {['Mission', 'Story', 'Technology', 'Community', 'Join'].map((item) => (
               <a 
                 key={item}
