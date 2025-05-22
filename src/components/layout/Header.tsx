@@ -224,7 +224,7 @@ const Header: React.FC = () => {
           </nav>
 
           {/* Connect Wallet Button */}
-          <div className="hidden md:block ">
+          <div className="hidden md:block">
             <CustomConnectButton />
           </div>
 
